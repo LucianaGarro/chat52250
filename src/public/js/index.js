@@ -42,5 +42,16 @@ socket.on('messageLogs', data => {
     log.innerHTML = messages;
 });
 
+//cada vez que se conecta un nuevo usuario, que muestre un modal
+socket.on('newUserConnected', data => {
+    Swal.fire({
+        toast:true,
+        position: 'top-end',
+        showConfirmationButton: false,
+        timer: 3000,
+        title: `${data} se ha unido al chat`,
+        icon: 'success'
+    })
+})
 
 
